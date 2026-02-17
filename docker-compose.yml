@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:15
-    container_name: odoo_db_19
+    container_name: odoo_db_18
     restart: always
     environment:
       - POSTGRES_USER=user1
@@ -16,13 +16,13 @@ services:
 
   odoo:
     image: odoo:19.0
-    container_name: odoo_app_19
+    container_name: odoo_app_18
     restart: always
     depends_on:
       - db
     ports:
-      - "8069:8069"
-      - "8071:8071"
+      - "8090:8069"
+      - "8091:8071"
     environment:
       - HOST=db
       - USER=user1
