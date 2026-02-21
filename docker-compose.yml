@@ -15,13 +15,17 @@ services:
       - app_network
 
   odoo:
-    image: odoo:19.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: odoo:19.0-custom
     container_name: odoo_app_19
     restart: always
     depends_on:
       - db
     ports:
-      - "8070:8069"
+      - "8069:8069"
+      - "8071:8071"
     environment:
       - HOST=db
       - USER=user1
